@@ -1,0 +1,598 @@
+{
+  "restaurant_recommendation": [
+    {
+      "PutRequest": {
+        "Item": {
+          "restaurant_name": {
+            "S": "Pizza Hut"
+          },
+          "address": {
+            "S": "wherever street 99, somewhere"
+          },
+          "close_hour": {
+            "N": "23"
+          },
+          "cuisine_style": {
+            "S": "italian"
+          },
+          "gluten_free": {
+            "BOOL": false
+          },
+          "open_hour": {
+            "N": "9"
+          },
+          "vegetarian": {
+            "BOOL": false
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "restaurant_name": {
+            "S": "Pizza Nut"
+          },
+          "address": {
+            "S": "wherever street 0, somewhere"
+          },
+          "close_hour": {
+            "N": "24"
+          },
+          "cuisine_style": {
+            "S": "italian"
+          },
+          "gluten_free": {
+            "BOOL": false
+          },
+          "open_hour": {
+            "N": "0"
+          },
+          "vegetarian": {
+            "BOOL": false
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "restaurant_name": {
+            "S": "Dominos"
+          },
+          "address": {
+            "S": "wherever street 22, somewhere"
+          },
+          "close_hour": {
+            "N": "22"
+          },
+          "cuisine_style": {
+            "S": "italian"
+          },
+          "gluten_free": {
+            "BOOL": false
+          },
+          "open_hour": {
+            "N": "11"
+          },
+          "vegetarian": {
+            "BOOL": false
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "restaurant_name": {
+            "S": "PIzza Bassa"
+          },
+          "address": {
+            "S": "wherever street 33, somewhere"
+          },
+          "close_hour": {
+            "N": "12"
+          },
+          "cuisine_style": {
+            "S": "italian"
+          },
+          "gluten_free": {
+            "BOOL": true
+          },
+          "open_hour": {
+            "N": "10"
+          },
+          "vegetarian": {
+            "BOOL": true
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "restaurant_name": {
+            "S": "Pad Tai"
+          },
+          "address": {
+            "S": "wherever street 100, somewhere"
+          },
+          "close_hour": {
+            "N": "21"
+          },
+          "cuisine_style": {
+            "S": "thai"
+          },
+          "gluten_free": {
+            "BOOL": false
+          },
+          "open_hour": {
+            "N": "9"
+          },
+          "vegetarian": {
+            "BOOL": false
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "restaurant_name": {
+            "S": "Chang Mai"
+          },
+          "address": {
+            "S": "wherever street 10, somewhere"
+          },
+          "close_hour": {
+            "N": "24"
+          },
+          "cuisine_style": {
+            "S": "thai"
+          },
+          "gluten_free": {
+            "BOOL": true
+          },
+          "open_hour": {
+            "N": "9"
+          },
+          "vegetarian": {
+            "BOOL": true
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "restaurant_name": {
+            "S": "Mexicana"
+          },
+          "address": {
+            "S": "wherever street 130, somewhere"
+          },
+          "close_hour": {
+            "N": "23"
+          },
+          "cuisine_style": {
+            "S": "mexican"
+          },
+          "gluten_free": {
+            "BOOL": true
+          },
+          "open_hour": {
+            "N": "12"
+          },
+          "vegetarian": {
+            "BOOL": false
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "restaurant_name": {
+            "S": "Cocoloco"
+          },
+          "address": {
+            "S": "wherever street 99, somewhere"
+          },
+          "close_hour": {
+            "N": "24"
+          },
+          "cuisine_style": {
+            "S": "mexican"
+          },
+          "gluten_free": {
+            "BOOL": false
+          },
+          "open_hour": {
+            "N": "12"
+          },
+          "vegetarian": {
+            "BOOL": false
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "restaurant_name": {
+            "S": "Tokyo"
+          },
+          "address": {
+            "S": "wherever street 111, somewhere"
+          },
+          "close_hour": {
+            "N": "24"
+          },
+          "cuisine_style": {
+            "S": "japanese"
+          },
+          "gluten_free": {
+            "BOOL": false
+          },
+          "open_hour": {
+            "N": "11"
+          },
+          "vegetarian": {
+            "BOOL": false
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "restaurant_name": {
+            "S": "Kyoto San"
+          },
+          "address": {
+            "S": "wherever street 112, somewhere"
+          },
+          "close_hour": {
+            "N": "24"
+          },
+          "cuisine_style": {
+            "S": "japanese"
+          },
+          "gluten_free": {
+            "BOOL": true
+          },
+          "open_hour": {
+            "N": "11"
+          },
+          "vegetarian": {
+            "BOOL": true
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "restaurant_name": {
+            "S": "Nooch"
+          },
+          "address": {
+            "S": "wherever street 112, somewhere"
+          },
+          "close_hour": {
+            "N": "24"
+          },
+          "cuisine_style": {
+            "S": "japanese"
+          },
+          "gluten_free": {
+            "BOOL": false
+          },
+          "open_hour": {
+            "N": "11"
+          },
+          "vegetarian": {
+            "BOOL": false
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "restaurant_name": {
+            "S": "Nigri"
+          },
+          "address": {
+            "S": "wherever street 114, somewhere"
+          },
+          "close_hour": {
+            "N": "24"
+          },
+          "cuisine_style": {
+            "S": "japanese"
+          },
+          "gluten_free": {
+            "BOOL": false
+          },
+          "open_hour": {
+            "N": "11"
+          },
+          "vegetarian": {
+            "BOOL": false
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "restaurant_name": {
+            "S": "Humus Abu Gosh"
+          },
+          "address": {
+            "S": "wherever street 117, somewhere"
+          },
+          "close_hour": {
+            "N": "15"
+          },
+          "cuisine_style": {
+            "S": "Mediterranean"
+          },
+          "gluten_free": {
+            "BOOL": false
+          },
+          "open_hour": {
+            "N": "11"
+          },
+          "vegetarian": {
+            "BOOL": true
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "restaurant_name": {
+            "S": "Shish Kebab"
+          },
+          "address": {
+            "S": "wherever street 141, somewhere"
+          },
+          "close_hour": {
+            "N": "15"
+          },
+          "cuisine_style": {
+            "S": "Mediterranean"
+          },
+          "gluten_free": {
+            "BOOL": false
+          },
+          "open_hour": {
+            "N": "10"
+          },
+          "vegetarian": {
+            "BOOL": false
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "restaurant_name": {
+            "S": "Salatino"
+          },
+          "address": {
+            "S": "wherever street 141, somewhere"
+          },
+          "close_hour": {
+            "N": "19"
+          },
+          "cuisine_style": {
+            "S": "Mediterranean"
+          },
+          "gluten_free": {
+            "BOOL": true
+          },
+          "open_hour": {
+            "N": "10"
+          },
+          "vegetarian": {
+            "BOOL": true
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "restaurant_name": {
+            "S": "Isreal Bistro"
+          },
+          "address": {
+            "S": "wherever street 155, somewhere"
+          },
+          "close_hour": {
+            "N": "19"
+          },
+          "cuisine_style": {
+            "S": "Mediterranean"
+          },
+          "gluten_free": {
+            "BOOL": false
+          },
+          "open_hour": {
+            "N": "10"
+          },
+          "vegetarian": {
+            "BOOL": false
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "restaurant_name": {
+            "S": "Falafel Hahim"
+          },
+          "address": {
+            "S": "wherever street 156, somewhere"
+          },
+          "close_hour": {
+            "N": "24"
+          },
+          "cuisine_style": {
+            "S": "Mediterranean"
+          },
+          "gluten_free": {
+            "BOOL": false
+          },
+          "open_hour": {
+            "N": "10"
+          },
+          "vegetarian": {
+            "BOOL": false
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "restaurant_name": {
+            "S": "Kuba Buba"
+          },
+          "address": {
+            "S": "wherever street 133, somewhere"
+          },
+          "close_hour": {
+            "N": "22"
+          },
+          "cuisine_style": {
+            "S": "Mediterranean"
+          },
+          "gluten_free": {
+            "BOOL": false
+          },
+          "open_hour": {
+            "N": "10"
+          },
+          "vegetarian": {
+            "BOOL": false
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "restaurant_name": {
+            "S": "Claro"
+          },
+          "address": {
+            "S": "wherever street 175, somewhere"
+          },
+          "close_hour": {
+            "N": "22"
+          },
+          "cuisine_style": {
+            "S": "fusion cuisine"
+          },
+          "gluten_free": {
+            "BOOL": false
+          },
+          "open_hour": {
+            "N": "10"
+          },
+          "vegetarian": {
+            "BOOL": false
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "restaurant_name": {
+            "S": "Matteo"
+          },
+          "address": {
+            "S": "wherever street 185, somewhere"
+          },
+          "close_hour": {
+            "N": "22"
+          },
+          "cuisine_style": {
+            "S": "fusion cuisine"
+          },
+          "gluten_free": {
+            "BOOL": true
+          },
+          "open_hour": {
+            "N": "10"
+          },
+          "vegetarian": {
+            "BOOL": true
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "restaurant_name": {
+            "S": "Margoza"
+          },
+          "address": {
+            "S": "wherever street 15, somewhere"
+          },
+          "close_hour": {
+            "N": "24"
+          },
+          "cuisine_style": {
+            "S": "fusion cuisine"
+          },
+          "gluten_free": {
+            "BOOL": false
+          },
+          "open_hour": {
+            "N": "13"
+          },
+          "vegetarian": {
+            "BOOL": false
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "restaurant_name": {
+            "S": "Lemon Tree"
+          },
+          "address": {
+            "S": "wherever street 177, somewhere"
+          },
+          "close_hour": {
+            "N": "24"
+          },
+          "cuisine_style": {
+            "S": "fusion cuisine"
+          },
+          "gluten_free": {
+            "BOOL": true
+          },
+          "open_hour": {
+            "N": "11"
+          },
+          "vegetarian": {
+            "BOOL": false
+          }
+        }
+      }
+    }
+  ]
+}

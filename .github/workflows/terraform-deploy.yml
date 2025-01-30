@@ -1,0 +1,104 @@
+name: Terraform Deploy
+
+on:
+  workflow_run:
+    workflows: ["Create S3 State Bucket"]
+    types:
+      - completed  # Triggered once the 'Create S3 State Bucket' workflow is completed successfully
+
+  # Manual trigger for Terraform Destroy
+  workflow_dispatch:  # This allows manual triggering of the destroy job
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    container:
+      image: python:3.9.21-bookworm
+    env:
+      STAGE: "dev"
+      REGION: "us-east-1"
+    defaults:
+      run:
+        working-directory: ./terraform
+    # needs: create-s3-bucket
+    steps:
+      # Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install terraform
+        run: |
+            apt-get update
+            apt-get install -y gnupg software-properties-common
+            wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | tee /usr/share/keyrings/hashicorp-archive-keyring.gpg > /dev/null
+            echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/hashicorp.list
+            apt update
+            apt-get install terraform
+
+      # Set AWS credentials
+      - name: Set up AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{env.REGION}}
+
+      # Terraform Plan
+      - name: Terafrom Plan
+        run: |
+          terraform init
+          terraform plan
+
+      # Apply Terraform configuration
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
+
+      # Optional: Output Terraform state and output values
+      - name: Output Terraform state
+        run: terraform output
+
+      - name: Install Awscli And Print Identity
+        run: pip install awscli && aws sts get-caller-identity
+
+      - name: Populate Dynamodb Restaurants table
+        run: aws dynamodb batch-write-item  --request-items file://../init_data_dynamodb.json --region ${{ env.REGION }}
+
+#   # Manual job for Terraform Destroy (only runs when manually triggered)
+#   destroy:
+#     runs-on: ubuntu-latest
+#     container:
+#       image: python:3.9.21-bookworm
+#     # needs: terraform  # This job should only run after the terraform job
+#     if: ${{ github.event_name == 'workflow_dispatch' }}  # This ensures it only runs for manual dispatch
+#     env:
+#       STAGE: "dev"
+#       REGION: "us-east-1"
+    
+#     steps:
+#       # Checkout the code again in the destroy job
+#       - name: Checkout code
+#         uses: actions/checkout@v3
+
+#       # Set up Terraform
+#       - name: Set up Terraform
+#         uses: hashicorp/setup-terraform@v1
+
+#       # Set AWS credentials
+#       - name: Set up AWS credentials
+#         uses: aws-actions/configure-aws-credentials@v2
+#         with:
+#           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#           aws-region: ${{ env.REGION }}
+
+#       # Configure the backend for the destroy step
+#       - name: Configure backend for Terraform (Destroy)
+#         run: |
+#           terraform init \
+#             -backend-config="bucket=${{ env.S3_BUCKET_NAME }}" \
+#             -backend-config="key=terraform.tfstate" \
+#             -backend-config="region=${{env.REGION}}"
+
+#       # Run Terraform Destroy to destroy the infrastructure
+#       - name: Terraform Destroy
+#         run: terraform destroy -auto-approve
